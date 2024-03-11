@@ -1,0 +1,32 @@
+﻿<Window x:Class="SimplyPhones.ShowRoom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimplyPhones"
+        mc:Ignorable="d"
+        Title="ShowRoom" Height="450" Width="540"
+        WindowStartupLocation="CenterScreen" Icon="/Resources/cat.png" >
+    <Grid>
+        <Button x:Name="btnShowMore" Content="See more details" HorizontalAlignment="Left" Margin="85,284,0,0" VerticalAlignment="Top" Click="btnShowStock_Click"/>
+        <ListBox x:Name="ListInventory" HorizontalAlignment="Left" Height="165" Margin="85,94,0,0" VerticalAlignment="Top" Width="345" ItemsSource="{Binding AvailableInventory}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Item.Model}" Grid.Column="0" TextTrimming="CharacterEllipsis" />
+                        <TextBlock Text="{Binding Item.Manufacturer}" Grid.Column="1" TextTrimming="CharacterEllipsis" />
+                        <TextBlock Text="{Binding AvailabilityStatus}" Grid.Column="2" HorizontalAlignment="Right" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Label Content="Items in the inventory" HorizontalAlignment="Left" Margin="85,54,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
