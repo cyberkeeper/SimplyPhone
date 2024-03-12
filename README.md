@@ -16,6 +16,9 @@ The application uses C# and the WPF framework. Various patterns and functionalit
 
 A singleton would be an equally valid approach to use in this application. 
 
+## Additional images
+Default image for phone from.
+<a href="https://www.flaticon.com/free-icons/page-not-found" title="page not found icons">Page not found icons created by Pixel perfect - Flaticon</a>
 
 
 ## Authors
