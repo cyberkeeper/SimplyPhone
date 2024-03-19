@@ -10,7 +10,8 @@ namespace SimplyPhones.Models
         public string Model { get; set; }
         public string Manufacturer { get; set; }
         public string About { get; }
-        public BitmapImage? ObjectImage { get; private set; }
+        //public BitmapImage? ObjectImage { get; private set; }
+        public string ImagePath { get; set; }
         public int PayAsYouGo { get; set; }
         public int SimFree { get; set; }
         public int ContractBelow800 { get; set; }
@@ -66,12 +67,12 @@ namespace SimplyPhones.Models
         /// Set the image for the phone.
         /// </summary>
         /// <param name="location"></param>
-        public void SetObjectImage(string location)
+       /* public void SetObjectImage(string location)
         {
             ObjectImage = new BitmapImage();
             ObjectImage.BeginInit();
             ObjectImage.UriSource = new Uri(location, UriKind.Relative);
             ObjectImage.EndInit();
-        }
+        }*/
     }
 }

@@ -25,7 +25,7 @@ namespace SimplyPhones.Models
         public static IPhone CreateBasicPhone(string model, string manufacturer, string about)
         {
             IPhone phone = new Phone(model, manufacturer, about);
-            phone.SetObjectImage(DEFAULT_IMAGE);
+            //phone.SetObjectImage(DEFAULT_IMAGE);
             return phone;
         }
     }

@@ -1,4 +1,6 @@
 ﻿using SimplyPhones.Models;
+using System.CodeDom;
+using System.IO;
 using System.Windows.Media.Imaging;
 
 namespace SimplyPhones.ViewModels
@@ -8,12 +10,15 @@ namespace SimplyPhones.ViewModels
     /// </summary>
     public class PhoneViewModel
     {
+        // if problem with image then use this one instead.
+        private readonly string DEFAULT_MISSING_IMAGE_PATH = "/Resources/not-found.png";
+
         public string Model { get; set; }
         public string Manufacturer { get; set; }
         public string About { get; set; }
-        public string ShortId { get; set; } // Assuming this property doesn't require recalculation
+        public string ShortId { get; set; }
 
-        public string? ImagePath { get; set; } // Assuming you want a separate path property instead of BitmapImage
+        public string? ImagePath { get; set; }
         public BitmapImage? PhoneImage { get; private set; }
 
         public int PayAsYouGoPrice { get; set; }
@@ -30,15 +35,31 @@ namespace SimplyPhones.ViewModels
             Model = phone.Model;
             Manufacturer = phone.Manufacturer;
             About = phone.About;
-            ShortId = phone.ShortID; // Assuming this property doesn't require recalculation
-            ImagePath = phone.ObjectImage?.UriSource?.ToString(); // Extract path from BitmapImage (if set)
-            PhoneImage = phone.ObjectImage;
+            ShortId = phone.ShortID; 
+            ImagePath = phone.ImagePath;
+            PhoneImage = GetImage(ImagePath);
 
             // Assuming these price properties are for display purposes only
             PayAsYouGoPrice = phone.PayAsYouGo;
             SimFreePrice = phone.SimFree;
             ContractBelow800Price = phone.ContractBelow800;
             Contract800Price = phone.Contract800;
+        }
+
+        /// <summary>
+        /// Check if expected image is present, if not return a default image
+        /// </summary>
+        /// <returns></returns>        
+        private BitmapImage? GetImage(string path)
+        {
+            FileInfo fileInfo = new FileInfo(path);
+
+            BitmapImage ObjectImage = new BitmapImage();
+            ObjectImage.BeginInit();
+            ObjectImage.UriSource = new Uri(path, UriKind.Relative);
+            ObjectImage.EndInit();       
+
+            return ObjectImage;
         }
     }
 }

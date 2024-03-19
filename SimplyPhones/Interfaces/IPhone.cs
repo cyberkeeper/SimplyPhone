@@ -11,7 +11,8 @@ namespace SimplyPhones.Interfaces
         string Model { get; }
         string Manufacturer { get; }
         string About { get; }
-        BitmapImage ObjectImage { get; }
+        //BitmapImage ObjectImage { get; }
+        string ImagePath { get; }
 
         //Cost details
         int PayAsYouGo { get; set; }
@@ -22,7 +23,7 @@ namespace SimplyPhones.Interfaces
         int Contract800 { get; set; }
 
         //Set the image for the phone
-        void SetObjectImage(string imageLocation);
+        //void SetObjectImage(string imageLocation);
 
         //Short identifier for phone
         string ShortID { get; }

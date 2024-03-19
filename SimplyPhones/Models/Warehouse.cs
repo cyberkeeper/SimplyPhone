@@ -63,7 +63,8 @@ namespace SimplyPhones.Models
 
                         // Create a Stock object and add it to the Inventory list
                         Phone p = new Phone(model, manufacturer, about);
-                        p.SetObjectImage(path);
+                        //p.SetObjectImage(path);
+                        p.ImagePath = path;
                         Stock stockItem = new Stock(p,numberInStock);
                         //Stock stockItem = new Stock(new Phone(model, manufacturer,about), numberInStock);
                         Inventory.Add(stockItem);
