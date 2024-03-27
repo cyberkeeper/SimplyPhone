@@ -11,7 +11,7 @@ namespace SimplyPhones.Models
         /// <summary>
         /// list of all available stock in the inventory
         /// </summary>
-        public List<Stock> Inventory { get; private set; }
+        private List<Stock> Inventory { get;  set; }
 
         /// <summary>
         /// default constructor
